@@ -167,7 +167,7 @@ const FilterPanel = ({ originalArray, setFilteredData, query, filterFields, sear
 						provides hosting for photos
 					</dd>
 
-					<dt>used bookstores in LA in 1965</dt><dd>I was the kid on the floor going through boxes of old magazines and buying everything Marvel</dd>
+					<dt>used bookstores in LA in 1965</dt><dd>I was the kid on the floor pouring through boxes of old magazines</dd>
 
 					<dt>author</dt><dd>John Dimm, <a href="mailto:john.silveragemarvels@gmail.com?subject=Your Silver-Age Marvels">john.silveragemarvels@gmail.com</a></dd>
 				</dl>

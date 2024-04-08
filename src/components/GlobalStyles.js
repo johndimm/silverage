@@ -115,7 +115,7 @@ const GlobalStyles = () => {
 }
 
 .page_subtitle {
-	font-size: 8pt;
+	font-size: 9pt;
 	font-style: italic;
 	text-align: center;
 	margin-bottom: 10px;

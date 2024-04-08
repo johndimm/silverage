@@ -23,19 +23,10 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 	if (id in photos) {
 		const comic_photos = photos[id]
 
-		const front = comic_photos.length > 0 ? comic_photos[0] : ''
-		const back = comic_photos.length > 1 ? comic_photos[1] : ''
-
-
-		if (front && front != '') {
-			scans.push(<img src={front} width="100" onClick={() => window.open(front, '_scan')} />)
-		}
-
-		if (back && back != '') {
-			scans.push(<img src={back} width="100" onClick={() => window.open(back, '_scan')} />)
-		}
+		scans = comic_photos.map ((photo, idx) => {
+           return <img key={idx} src={photo} width="100" onClick={() => window.open(front, '_scan')} />
+		})
 	}
-
 
 	const ContactForm = ({ item }) => {
 		const price = item['price']
@@ -97,6 +88,7 @@ const onLoad = (e) => {
 	e.preventDefault()
 }
 
+/*
 const updatePoster = async (item, posterURL) => {
 	if (item.imdbid == null || posterURL == null) return
 
@@ -114,6 +106,7 @@ const fetchOMDBPoster = async (e, item) => {
 	// Set the source of the current item poster that generated the request.
 	e.target.src = data.Poster
 }
+*/
 
 
 const Card = ({ item, onClick, cardFields, fieldStats, setQuery, picSize }) => {

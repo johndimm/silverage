@@ -7,6 +7,9 @@ import * as csv from 'csv-string'
 import { scanCSVData, pickFields, allKeys } from './Analyze'
 import { Cards } from './Cards'
 import Rows from './Rows'
+import getConfig from 'next/config';
+
+const { publicRuntimeConfig } = getConfig();
 
 const ITEMS_PER_PAGE = 30
 
@@ -103,6 +106,9 @@ const Main = ({ url, csvBuffer }) => {
 	}
 
 	useEffect(() => {
+		// const url = "http://localhost:3001/comics_sl.csv"
+		// const url = publicRuntimeConfig.NEXT_PUBLIC_COMIC_PHOTOS_CSV
+		const url = process.env.NEXT_PUBLIC_COMICS_CSV
 		if (url) {
 			fetchData(url)
 		}
@@ -131,7 +137,8 @@ const Main = ({ url, csvBuffer }) => {
 
 	const fetchPhotos = async () => {
 		// const url = 'http://localhost/projects/marvel/data/comics-photos.csv'
-		const url = 'http://localhost:3001/comics-photos.csv'
+		// const url = 'http://localhost:3001/comics-photos.csv'
+		const url = process.env.NEXT_PUBLIC_COMICS_PHOTOS_CSV
 		const res = await fetch(url)
 		const restext = await res.text()
 		acceptCSVPhotos(restext)
