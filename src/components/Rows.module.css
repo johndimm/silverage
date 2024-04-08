@@ -1,0 +1,10 @@
+.rows {
+	border-collapse: collapse;
+    font-size:10pt;
+}
+
+.rows td,
+.rows th {
+	border: 1px solid black;
+	padding: 5px;
+}
