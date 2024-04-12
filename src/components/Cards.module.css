@@ -58,15 +58,17 @@
 
 .one_item_right {
 	display: inline-block;
-	width: 300px;
+	width: 400px;
 	height: 100%;
 	vertical-align: top;
+	overflow: auto;
+	margin-top: 10px;
 }
 
 .one_item img {
 	margin-bottom: 0;
-	margin-right: 20px;
-	max-height:95vh;
+	max-height:85vh;
+	max-width: 25vw;
 }
 
 .one_item a {
@@ -115,4 +117,18 @@
 	color: darkblue;
 	margin-left: 20px;
 	text-align: left;
+}
+
+.scans {
+	width: 65px;
+	max-height: 85vh;
+	overflow: auto;
+	float:left;
+	margin-left: 10px;
+	margin-top: 20px;
+    scrollbar-width: thin;
+}
+
+.request_info {
+  margin-top: 20px;
 }
