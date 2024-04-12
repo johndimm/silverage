@@ -8,7 +8,8 @@ const scanCSVData = (jsonArray) => {
 
 	fields.forEach((fieldName) => {
 		fieldStats[fieldName] = {}
-		let distinct = {}
+		let distinctVals = {}
+		let countVals = 0
 
 		let longest = ''
 		let shortest = ' '.repeat(100)
@@ -33,8 +34,10 @@ const scanCSVData = (jsonArray) => {
 
 			vals.forEach((v, idx) => {
 				const val = v.replace(/^["']+/g, '').replace(/["']+$/, '')
-				if (val in distinct) distinct[val] += 1
-				else distinct[val] = 1
+				if (val in distinctVals) distinctVals[val] += 1
+				else distinctVals[val] = 1
+
+				countVals += 1
 
 				if (val.length > longest.length) longest = val
 				if (val.length > 0 && val.length < shortest.length) shortest = val
@@ -61,8 +64,9 @@ const scanCSVData = (jsonArray) => {
 		fieldStats[fieldName] = {
 			longest: longest,
 			shortest: shortest,
-			count: Object.keys(distinct).length,
-			// distinct: distinct,
+			countDistinct: Object.keys(distinctVals).length,
+			countVals: countVals,
+			// distinctVals: distinctVals,
 			avgSpaces: spaces / jsonArray.length,
 			isUrl: isUrl,
 			isImage: isImage,
@@ -81,7 +85,7 @@ const scanCSVData = (jsonArray) => {
 		)
 		.sort(
 			(a, b) =>
-				1000 * (fieldStats[b].count - fieldStats[a].count) +
+				1000 * (fieldStats[b].countDistinct - fieldStats[a].countDistinct) +
 				(fieldStats[a].longest.length - fieldStats[b].longest.length)
 		)
 		.find((a) => a)
@@ -90,7 +94,7 @@ const scanCSVData = (jsonArray) => {
 		.filter((fieldName) => fieldStats[fieldName].hasWordChar && fieldStats[fieldName].avgSpaces > 0)
 		.sort(
 			(a, b) =>
-				1000 * (fieldStats[b].count - fieldStats[a].count) +
+				1000 * (fieldStats[b].countDistinct - fieldStats[a].countDistinct) +
 				(fieldStats[b].longest.length - fieldStats[a].longest.length)
 		)
 		.find((a) => a)
@@ -117,24 +121,29 @@ const pickFields = (jsonArray, fieldStats) => {
 	let sf = []
 
 	Object.keys(fieldStats)
+	
 	/*
 		.sort((a, b) => {
 			const wa = fieldStats[a].hasWordChar ? -1000 : 1000
 			const wb = fieldStats[b].hasWordChar ? -1000 : 1000
-			const d = wa - wb + fieldStats[b].count - fieldStats[a].count
+			const d = wa - wb + fieldStats[b].countDistinct - fieldStats[a].countDistinct
 			return d
 		})
-		*/
+	*/
+
+		.filter ( (a) => 
+		  fieldStats[a].countDistinct < fieldStats[a].countVals)
+		
 		.filter(
 			(a) =>
-				fieldStats[a].count / jsonArray.length < 0.9 &&
-				fieldStats[a].count > 1 
+				fieldStats[a].countDistinct / jsonArray.length < 0.9 &&
+				fieldStats[a].countDistinct > 1 
 				&& !fieldStats[a].isObject
 				// && fieldStats[a].longest.length != fieldStats[a].shortest.length 
-				&& fieldStats[a].longest.length < 1000
+				&& fieldStats[a].longest.length < 400
 		)
 		.forEach((val) => {
-			if (fieldStats[val].count > 1) {
+			if (fieldStats[val].countDistinct > 1) {
 				if (!fieldStats[val].isUrl) {
 					const c = fieldStats[val].avgCommas
 					const s = fieldStats[val].avgSpaces
@@ -183,14 +192,14 @@ const allKeys = (item, fieldStats, setQuery) => {
 		const parts = typeof list === 'string' ? list.split(',') : []
 
 		const hotDetail = parts.map((val, idx2) => {
-			const comma = idx2 > 0 ? ',' : ''
+			const comma = idx2 > 0 ? ', ' : ''
 			let v = val
 			const parens = val.indexOf('(')
 			if (parens != -1) v = val.substring(0, parens)
 
 			return (
 				<span key={idx * 100 + idx2} onClick={(e) => setQuery(v)}>
-					{comma} {val}
+					{comma}{val}
 				</span>
 			)
 		})

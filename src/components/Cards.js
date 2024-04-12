@@ -9,11 +9,15 @@ const picSizes = {
 }
 
 export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext, photos }) => {
+	const [poster, setPoster] = useState('')
+
 	const detail = allKeys(item, fieldStats, setQuery)
 
 	const posterField = fieldStats.cardFields.poster
-	let poster = item[posterField]
-	poster = poster.replace("portrait_uncanny", "detail")
+
+	useEffect(() => {
+		setPoster(item[posterField].replace("portrait_uncanny", "detail"))
+	}, [item])
 
 	const title = encodeURIComponent(item['title'])
 	const ebayLink = `https://www.ebay.com/sch/i.html?_nkw=${title}`
@@ -21,60 +25,71 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 	let scans = []
 	const id = item['id']
 	if (id in photos) {
-		const comic_photos = photos[id]
+		console.log(`photos[id][0]: ${photos[id][0]} , item[posterField]: ${item[posterField]}`)
+		const comic_photos = photos[id][0] == item[posterField]
+			? photos[id]
+			: [].concat(item[posterField], photos[id])
 
-		scans = comic_photos.map ((photo, idx) => {
-           return <img key={idx} src={photo} width="100" onClick={() => window.open(front, '_scan')} />
+		scans = comic_photos.map((photo, idx) => {
+			return <img key={idx} src={photo} width="50" onClick={() => setPoster(photo)} />
 		})
 	}
 
 	const ContactForm = ({ item }) => {
-		const price = item['price']
+		const price = item['for sale']
 		if (price == '')
 		   return null
 
 		const title = item['title']
 		
-		const subject  = `Please contact me about ${title}, for sale at ${price}`
+		const subject  = `I'm interested.  Please contact me about ${title}, for sale at ${price}`
 		const email = 'john.silveragemarvels@gmail.com'
 		const href = `mailto:${email}?subject=${subject}`
 		return (
-			<div>
-			<b>Send email to purchase</b>:
+			<div className={styles.request_info}>
+				<b>Request information:</b>
 			<a href={href}>
 			<div className={styles.purchase_email}>
-  {subject}
+                 {subject}
 			</div>
 			</a>
 			</div>
 		)
 	}
 
-
 	return (
 		<div className={styles.popup_background} >
 
-			<div className={styles.one_item}>
+			<table className={styles.one_item}>
+				<tbody>
+					<tr valign="top">
+						<td>
+							<div className={styles.one_item_left}>
+								<img src={poster} onError={(e) => onError(e, item)} onClick={(e) => setOneItem(null)} />
+							</div>
+						</td>
+						<td>
+							<div className={styles.scans}>
+								{scans}
+							</div>
+						</td>
+						<td>
+							<div className={styles.one_item_right} >
+								<div className={styles.navigation}>
+									<button onClick={goPrev}>prev</button>
+									<button onClick={goNext}>next</button>
+									<button onClick={() => { window.open(ebayLink, '_ebay') }}>ebay lookup</button>
+									<button onClick={(e) => setOneItem(null)}>close</button>
+								</div>
 
-				<div className={styles.one_item_left}>
-					<img src={poster} onError={(e) => onError(e, item)} onClick={(e) => setOneItem(null)} />
-				</div>
-
-				<div className={styles.one_item_right} >
-					<div className={styles.navigation}>
-						<button onClick={goPrev}>prev</button>
-						<button onClick={goNext}>next</button>
-						<button onClick={() => { window.open(ebayLink, '_ebay') }}>ebay lookup</button>
-						<button onClick={(e) => setOneItem(null)}>close</button>
-					</div>
-					<div>
-						{scans}
-					</div>
-					<div className={styles.item_details_text}>{detail}</div>
-					<ContactForm item={item} />
-				</div>
-
-			</div>
+								<div className={styles.item_details_text}>{detail}</div>
+								<ContactForm item={item}/>
+				
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	)
 }

@@ -114,28 +114,22 @@ const FilterPanel = ({ originalArray, setFilteredData, query, filterFields, sear
 	return (
 		<div className='fp_filter_panel'>
 			<GlobalStyles />
-			<div className='fp_buttons'>
-				<div className='fp_home_button' onClick={() => (window.location.href = '/')}>
-					home
-				</div>
-				<div className='fp_clear_button' onClick={clearInterface}>
-					clear
-				</div>
-			</div>
+            <div className="titles">
 
-
-			<div className="page_title">
-				Silver Age
-			</div>
 			<div className="page_subtitle">
-				Marvel Comics from the mid-60's
+				a fantastic collection of 1960's Marvel Comics . . .
 			</div>
-
+			</div>
 
 			<div className="fp_buttons">
-				<span className='picSize' onClick={() => setPicSize('small')}>small</span>
-				<span className='picSize' onClick={() => setPicSize('medium')}>medium</span>
-				<span className='picSize' onClick={() => setPicSize('large')}>large</span>
+				<form>
+					<input type="radio" id='small' name="card-size" className='picSize' onChange={() => setPicSize('small')} />
+					<label htmlFor='small'>small</label>
+					<input type="radio" id='medium' name="card-size" className='picSize' onChange={() => setPicSize('medium')} defaultChecked="true" />
+					<label htmlFor='medium'>medium</label>
+					<input type="radio" id='large' name="card-size" className='picSize' onChange={() => setPicSize('large')} />
+					<label htmlFor='large'>large</label>
+				</form>
 			</div>
 
 			<SearchFilter
@@ -145,7 +139,10 @@ const FilterPanel = ({ originalArray, setFilteredData, query, filterFields, sear
 				query={query}
 				searchFields={searchFields}
 			/>
+
+            <div>
 			{filters}
+			</div>
 
 			<div className='fp_credits'>
 
@@ -160,14 +157,33 @@ const FilterPanel = ({ originalArray, setFilteredData, query, filterFields, sear
 					<dt>
 						<a href="https://filterpanel-csv.vercel.app/" target="_blank">featurepanel</a>
 					</dt>
-					<dd>my react/nextjs package to manage this panel</dd>
+					<dd>nodejs package to manage panels like this</dd>
+
+					<dt>
+						<a href="https://github.com/johndimm/silverage" target="_blank">github</a>
+					</dt>
+					<dd>react/nextjs code for this webapp</dd>
 
 					<dt><a href="https://imgur.com/" target="_blank">imgur</a></dt>
 					<dd>
-						provides hosting for photos
+						photo hosting
 					</dd>
 
-					<dt>used bookstores in LA in 1965</dt><dd>I was the kid on the floor pouring through boxes of old magazines</dd>
+					<dt>
+						Marvel's back-issue service
+					</dt>
+
+					<dd>
+						Most of the 1963-64 issues were bought by mail directly from Marvel itself at cover price.
+					</dd>
+
+					<dt>
+						Tyee Bookstore in Seattle
+					</dt>
+					<dd>
+						A trove of 1961-63 Marvels in top condition at $0.05.
+					</dd>
+
 
 					<dt>author</dt><dd>John Dimm, <a href="mailto:john.silveragemarvels@gmail.com?subject=Your Silver-Age Marvels">john.silveragemarvels@gmail.com</a></dd>
 				</dl>
