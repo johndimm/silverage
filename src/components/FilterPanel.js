@@ -112,87 +112,88 @@ const FilterPanel = ({ originalArray, setFilteredData, query, filterFields, sear
 	const idx = filterFields.length
 
 	return (
-		<div className='fp_filter_panel'>
+		<>
 			<GlobalStyles />
-            <div className="titles">
-
-			<div className="page_subtitle">
-				a fantastic collection of <i>1960's Marvel Comics</i> . . .
+			<div className="titles">
+				<div className="page_subtitle">
+					<span style={{ "fontSize": "12pt" }}><i>a</i></span>&nbsp; fantastic &nbsp;
+					<i>collection</i> of <span className='marvel_comics'>1960's Marvel Comics</span> . . .
+				</div>
 			</div>
+			<div className='fp_filter_panel'>
+				<div className="fp_buttons">
+					<form>
+						<input type="radio" id='small' name="card-size" className='picSize' onChange={() => setPicSize('small')} />
+						<label htmlFor='small'>small</label>
+						<input type="radio" id='medium' name="card-size" className='picSize' onChange={() => setPicSize('medium')} defaultChecked="true" />
+						<label htmlFor='medium'>medium</label>
+						<input type="radio" id='large' name="card-size" className='picSize' onChange={() => setPicSize('large')} />
+						<label htmlFor='large'>large</label>
+					</form>
+				</div>
+
+				<SearchFilter
+					title='Search'
+					originalArray={originalArray}
+					aggregateMasks={(data) => aggregateMasks(idx, data)}
+					query={query}
+					searchFields={searchFields}
+				/>
+
+				<div>
+					{filters}
+				</div>
+
+				<div className='fp_credits'>
+
+					<h3>credits</h3>
+
+					<dl>
+						<dt>
+							<a href="https://developer.marvel.com/documentation/getting_started" target="_blank">Marvel Comics API</a>
+						</dt>
+						<dd>cover images, descriptions, and creator credits</dd>
+
+						<dt>
+							<a href="https://filterpanel-csv.vercel.app/" target="_blank">featurepanel</a>
+						</dt>
+						<dd>nodejs package to manage panels like this</dd>
+
+						<dt>
+							<a href="https://github.com/johndimm/silverage" target="_blank">github</a>
+						</dt>
+						<dd>react/nextjs code for this webapp</dd>
+
+						<dt><a href="https://imgur.com/" target="_blank">imgur</a></dt>
+						<dd>
+							photo hosting
+						</dd>
+
+						<dt><a href="https://data.world/johndimm/mycomics" target="_blank">data.world</a></dt>
+						<dd>csv file hosting</dd>
+
+						<dt>
+							Marvel's back-issue service
+						</dt>
+
+						<dd>
+							Most of the 1963-64 issues were bought by mail directly from Marvel itself at cover price.
+						</dd>
+
+						<dt>
+							Tyee Bookstore in Seattle
+						</dt>
+						<dd>
+							A trove of 1961-63 Marvels in top condition at $0.05.
+						</dd>
+
+
+						<dt>author</dt><dd>John Dimm, <a href="mailto:john.silveragemarvels@gmail.com?subject=Your Silver-Age Marvels">john.silveragemarvels@gmail.com</a></dd>
+					</dl>
+				</div>
+
 			</div>
-
-			<div className="fp_buttons">
-				<form>
-					<input type="radio" id='small' name="card-size" className='picSize' onChange={() => setPicSize('small')} />
-					<label htmlFor='small'>small</label>
-					<input type="radio" id='medium' name="card-size" className='picSize' onChange={() => setPicSize('medium')} defaultChecked="true" />
-					<label htmlFor='medium'>medium</label>
-					<input type="radio" id='large' name="card-size" className='picSize' onChange={() => setPicSize('large')} />
-					<label htmlFor='large'>large</label>
-				</form>
-			</div>
-
-			<SearchFilter
-				title='Search'
-				originalArray={originalArray}
-				aggregateMasks={(data) => aggregateMasks(idx, data)}
-				query={query}
-				searchFields={searchFields}
-			/>
-
-            <div>
-			{filters}
-			</div>
-
-			<div className='fp_credits'>
-
-				<h3>credits</h3>
-
-				<dl>
-					<dt>
-						<a href="https://developer.marvel.com/documentation/getting_started" target="_blank">Marvel Comics API</a>
-					</dt>
-					<dd>cover images, descriptions, and creator credits</dd>
-
-					<dt>
-						<a href="https://filterpanel-csv.vercel.app/" target="_blank">featurepanel</a>
-					</dt>
-					<dd>nodejs package to manage panels like this</dd>
-
-					<dt>
-						<a href="https://github.com/johndimm/silverage" target="_blank">github</a>
-					</dt>
-					<dd>react/nextjs code for this webapp</dd>
-
-					<dt><a href="https://imgur.com/" target="_blank">imgur</a></dt>
-					<dd>
-						photo hosting
-					</dd>
-
-					<dt><a href="https://data.world/johndimm/mycomics" target="_blank">data.world</a></dt>
-					<dd>csv file hosting</dd>
-
-					<dt>
-						Marvel's back-issue service
-					</dt>
-
-					<dd>
-						Most of the 1963-64 issues were bought by mail directly from Marvel itself at cover price.
-					</dd>
-
-					<dt>
-						Tyee Bookstore in Seattle
-					</dt>
-					<dd>
-						A trove of 1961-63 Marvels in top condition at $0.05.
-					</dd>
-
-
-					<dt>author</dt><dd>John Dimm, <a href="mailto:john.silveragemarvels@gmail.com?subject=Your Silver-Age Marvels">john.silveragemarvels@gmail.com</a></dd>
-				</dl>
-			</div>
-
-		</div>
+		</>
 
 	)
 }
