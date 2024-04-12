@@ -191,8 +191,9 @@ const allKeys = (item, fieldStats, setQuery) => {
 		// console.log('list:', list)
 		const parts = typeof list === 'string' ? list.split(',') : []
 
-		const hotDetail = parts.map((val, idx2) => {
-			const comma = idx2 > 0 ? ', ' : ''
+
+		let hotDetail = parts.map((val, idx2) => {
+			const comma = idx2 > 0 ? ',' : ''
 			let v = val
 			const parens = val.indexOf('(')
 			if (parens != -1) v = val.substring(0, parens)
@@ -203,6 +204,11 @@ const allKeys = (item, fieldStats, setQuery) => {
 				</span>
 			)
 		})
+
+		const priceField = 'for sale'
+        if (s == priceField && item[priceField] == '')
+		   hotDetail = ". . . not yet"
+
 
 		return (
 			<div key={idx}>

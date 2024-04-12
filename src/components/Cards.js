@@ -31,7 +31,9 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 			: [].concat(item[posterField], photos[id])
 
 		scans = comic_photos.map((photo, idx) => {
-			return <img key={idx} src={photo} width="50" onClick={() => setPoster(photo)} />
+			return <div>
+			<img key={idx} src={photo} width="50" onClick={() => setPoster(photo)} />			
+			</div>
 		})
 	}
 
@@ -47,10 +49,10 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 		const href = `mailto:${email}?subject=${subject}`
 		return (
 			<div className={styles.request_info}>
-				<b>Request information:</b>
+				<b>Request information by email:</b>
 			<a href={href}>
 			<div className={styles.purchase_email}>
-                 {subject}
+                 "{subject}"
 			</div>
 			</a>
 			</div>
@@ -79,7 +81,7 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 									<button onClick={goPrev}>prev</button>
 									<button onClick={goNext}>next</button>
 									<button onClick={() => { window.open(ebayLink, '_ebay') }}>ebay lookup</button>
-									<button onClick={(e) => setOneItem(null)}>close</button>
+									<button className={styles.close_button} onClick={(e) => setOneItem(null)}>X</button>
 								</div>
 
 								<div className={styles.item_details_text}>{detail}</div>
@@ -90,6 +92,7 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 					</tr>
 				</tbody>
 			</table>
+
 		</div>
 	)
 }
