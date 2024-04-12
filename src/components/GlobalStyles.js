@@ -130,14 +130,19 @@ const GlobalStyles = () => {
 
 .page_subtitle {
 	font-size: 10pt;
-	font-style: italic;
+
 	text-align: center;
 	margin-bottom: 15px;
 	font-family: komika;
-	border-radius:10px;
 	padding: 5px;
 	background-color: yellow;
 	border: 2px solid darkblue;
+	width: 220px;
+	height: 50px;
+}
+
+.dummy {
+	border-radius:10px;
 }
 
 .xtitles {

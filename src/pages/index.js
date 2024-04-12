@@ -1,9 +1,19 @@
 import Main from '../components/Main'
-import { useState } from 'react'
-import styles from './index.module.css'
+import Head from 'next/head'
 
 const MainPage = () => {
-	return <Main />
+	return <div>
+		<Head>
+			<title>
+			a fantastic collecton of 1960's Marvel Comics
+			</title>
+		</Head>
+	    <Main />
+		</div>
+
+	// return {c} // <Main />
+
+	
 }
 
 export default MainPage

@@ -117,7 +117,7 @@ const FilterPanel = ({ originalArray, setFilteredData, query, filterFields, sear
             <div className="titles">
 
 			<div className="page_subtitle">
-				a fantastic collection of 1960's Marvel Comics . . .
+				a fantastic collection of <i>1960's Marvel Comics</i> . . .
 			</div>
 			</div>
 
@@ -168,6 +168,9 @@ const FilterPanel = ({ originalArray, setFilteredData, query, filterFields, sear
 					<dd>
 						photo hosting
 					</dd>
+
+					<dt><a href="https://data.world/johndimm/mycomics" target="_blank">data.world</a></dt>
+					<dd>csv file hosting</dd>
 
 					<dt>
 						Marvel's back-issue service

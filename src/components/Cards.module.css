@@ -65,8 +65,8 @@
 	margin-top: 10px;
 }
 
-.one_item img {
-	margin-bottom: 0;
+.one_item_left img {
+	margin: 10px;
 	max-height:85vh;
 	max-width: 25vw;
 }
@@ -104,6 +104,7 @@
 
 .navigation {
 	display: inline-block;
+	width: 100%;
 }
 
 .navigation button {
@@ -120,15 +121,18 @@
 }
 
 .scans {
-	width: 65px;
 	max-height: 85vh;
 	overflow: auto;
 	float:left;
-	margin-left: 10px;
 	margin-top: 20px;
+	margin-right: 10px;
     scrollbar-width: thin;
 }
 
 .request_info {
   margin-top: 20px;
+}
+
+.close_button {
+   float: right;
 }
