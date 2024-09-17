@@ -1,8 +1,4 @@
 comic_id,area,photo
-73989,front,https://i.imgur.com/SG1Xozy.jpeg
-73989,back,https://i.imgur.com/v8gi22n.jpg
-18576,front,https://i.imgur.com/ZO2soCX.jpeg
-18576,back,https://i.imgur.com/0KHAxJE.jpeg
 13227,,slabs/ff4f.jpg
 13227,,slabs/ff4b.jpg
 13227,,slabs/ff4pinup.jpg
@@ -23,3 +19,59 @@ comic_id,area,photo
 13247,,ff/42/front-top-left.jpg
 13247,,ff/42/front-top-right.jpg
 13247,,ff/42/title-page.jpg
+73989,,war/battlefield_9/front.jpeg
+73989,,war/battlefield_9/back.jpeg
+73989,,war/battlefield_9/front-bottom-left.jpg
+73989,,war/battlefield_9/front-bottom-right.jpg
+73989,,war/battlefield_9/front-top-left.jpg
+73989,,war/battlefield_9/front-top-right.jpg
+73989,,war/battlefield_9/back-bottom-left.jpg
+73989,,war/battlefield_9/back-bottom-middle.jpg
+73989,,war/battlefield_9/back-top-left.jpg
+73989,,war/battlefield_9/back-top-right.jpg
+73989,,war/battlefield_9/inside.jpg
+18576,,western/two-gun kid/55/front.jpeg
+18576,,western/two-gun kid/55/back.jpeg
+18576,,western/two-gun kid/55/front-bottom-left.jpg
+18576,,western/two-gun kid/55/front-bottom-right.jpg
+18576,,western/two-gun kid/55/front-top-left.jpg
+18576,,western/two-gun kid/55/front-top-right.jpg
+18576,,western/two-gun kid/55/back-bottom-left.jpg
+18576,,western/two-gun kid/55/back-bottom-right.jpg
+18576,,western/two-gun kid/55/back-top-left.jpg
+18576,,western/two-gun kid/55/back-top-right.jpg
+18576,,western/two-gun kid/55/inside.jpg
+9787,,journey into mystery/90/front.jpeg
+9787,,journey into mystery/90/back.jpeg
+9787,,journey into mystery/90/front-bottom-left.jpg
+9787,,journey into mystery/90/front-bottom-right.jpg
+9787,,journey into mystery/90/front-top-left.jpg
+9787,,journey into mystery/90/front-top-right.jpg
+9787,,journey into mystery/90/back-bottom-left.jpg
+9787,,journey into mystery/90/back-bottom-right.jpg
+9787,,journey into mystery/90/back-top-left.jpg
+9787,,journey into mystery/90/back-top-right.jpg
+9787,,journey into mystery/90/back-top-right2.jpg
+9787,,journey into mystery/90/inside.jpg
+11285,,tales of suspense/43/front.jpeg
+11285,,tales of suspense/43/back.jpeg
+11285,,tales of suspense/43/front-bottom-left.jpg
+11285,,tales of suspense/43/front-bottom-right.jpg
+11285,,tales of suspense/43/front-top-left.jpg
+11285,,tales of suspense/43/front-top-right.jpg
+11285,,tales of suspense/43/back-bottom-left.jpg
+11285,,tales of suspense/43/back-bottom-right.jpg
+11285,,tales of suspense/43/back-top-left.jpg
+11285,,tales of suspense/43/back-top-right.jpg
+11285,,tales of suspense/43/inside.jpg
+12477,,x-men/3/front.jpeg
+12477,,x-men/3/back.jpeg
+12477,,x-men/3/front-bottom-left.jpg
+12477,,x-men/3/front-bottom-right.jpg
+12477,,x-men/3/front-top-left.jpg
+12477,,x-men/3/front-top-right.jpg
+12477,,x-men/3/back-bottom-left.jpg
+12477,,x-men/3/back-bottom-right.jpg
+12477,,x-men/3/back-top-left.jpg
+12477,,x-men/3/back-top-right.jpg
+12477,,x-men/3/inside.jpg

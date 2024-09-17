@@ -44,7 +44,7 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 
 		const title = item['title']
 		
-		const subject  = `I'm interested.  Please contact me about ${title}, for sale at ${price}`
+		const subject  = `I might be interested in ${title}.  How much?`
 		const email = 'john.silveragemarvels@gmail.com'
 		const href = `mailto:${email}?subject=${subject}`
 		return (
