@@ -10,10 +10,11 @@ const Row = ({ val2, idx2, counts }) => {
 			const v = val2[fieldName]
 			let rowValue = v
 			if (v.match(/^https?:\/\//)) {
-				if (v.indexOf('image') != -1) {
+				if (v.indexOf('image') != -1 && v.indexOf('image_not_available') == -1) {
 					rowValue = <img src={v} />
 				} else {
 					rowValue = <a href={v}>link</a>
+					console.log('missing image:', v)
 				}
 			}
 			return (

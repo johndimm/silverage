@@ -9,13 +9,26 @@ const picSizes = {
 }
 
 export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext, photos }) => {
+	const posterField = fieldStats.cardFields.poster
 	const [poster, setPoster] = useState('')
 
 	const detail = allKeys(item, fieldStats, setQuery)
 
-	const posterField = fieldStats.cardFields.poster
+	const onError = (e, item) => {
+		// Turn display off, because this may be a bad image link.
+		// But it could also something innocuous that actually
+		// doesn't prevent the image from displaying.
+		e.currentTarget.style.display = 'none'
+
+		// fetchOMDBPoster(e, item)
+
+		e.preventDefault()
+		e.target.onerror = null
+
+	}
 
 	useEffect(() => {
+
 		setPoster(item[posterField].replace("portrait_uncanny", "detail"))
 	}, [item])
 
@@ -31,33 +44,49 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 			: [].concat(item[posterField], photos[id])
 
 		scans = comic_photos.map((photo, idx) => {
+			if (photo.indexOf('/image_not_available') != -1) {
+				return <></>
+			}
 			return <div>
-			<img key={idx} src={photo} width="50" onClick={() => setPoster(photo)} />			
+				<img key={idx} src={photo} width="50" onClick={() => setPoster(photo)} />
 			</div>
 		})
 	}
 
-	const ContactForm = ({ item }) => {
+	const ContactForm = ({ item, hasPhotos }) => {
 		const price = item['for sale']
 		if (price == '')
-		   return null
+			return null
 
 		const title = item['title']
-		
-		const subject  = `I might be interested in ${title}.  How much?`
+
+		let subject = `I might be interested in ${title}.  How much?`
+		if (!hasPhotos) subject += " Please take some photos of the actual comic."
 		const email = 'john.silveragemarvels@gmail.com'
 		const href = `mailto:${email}?subject=${subject}`
 		return (
 			<div className={styles.request_info}>
 				<b>Request information by email:</b>
-			<a href={href}>
-			<div className={styles.purchase_email}>
-                 "{subject}"
-			</div>
-			</a>
+				<a href={href}>
+					<div className={styles.purchase_email}>
+						"{subject}"
+					</div>
+				</a>
 			</div>
 		)
 	}
+	let mainImage = null
+	if (poster.indexOf("image_not_available") != -1) {
+		if (id in photos) {
+		  mainImage = photos[id][0]
+		} else {
+			mainImage = null
+		}
+	} else {
+		mainImage = poster
+	}
+
+	const hasPhotos = id in photos && photos[id].length > 0
 
 	return (
 		<div className={styles.popup_background} >
@@ -67,7 +96,7 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 					<tr valign="top">
 						<td>
 							<div className={styles.one_item_left}>
-								<img src={poster} onError={(e) => onError(e, item)} onClick={(e) => setOneItem(null)} />
+								<img src={mainImage} onError={(e) => onError(e, item)} onClick={(e) => setOneItem(null)} />
 							</div>
 						</td>
 						<td>
@@ -85,8 +114,8 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 								</div>
 
 								<div className={styles.item_details_text}>{detail}</div>
-								<ContactForm item={item}/>
-				
+								<ContactForm item={item} hasPhotos={hasPhotos}/>
+
 							</div>
 						</td>
 					</tr>
@@ -127,11 +156,15 @@ const fetchOMDBPoster = async (e, item) => {
 */
 
 
-const Card = ({ item, onClick, cardFields, fieldStats, setQuery, picSize }) => {
+const Card = ({ item, onClick, cardFields, fieldStats, setQuery, picSize, photos }) => {
 	const [badImage, setBadImage] = useState(false)
 	const title = item[cardFields['title']]
 	const plot = item[cardFields['plot']]
+	const grade = item['grade']
+	const id = item['id']
 	let poster = item[cardFields['poster']]
+	const description = item['description']
+	const penciler = item['penciler']
 
 	const size = picSizes[picSize]
 	poster = poster.replace("portrait_uncanny", size["name"])
@@ -160,10 +193,29 @@ const Card = ({ item, onClick, cardFields, fieldStats, setQuery, picSize }) => {
 
 	const style = { "width": size["width"] + "px", "height": size["height"] + "px" }
 
+	let cardContents = null
+	if (poster.indexOf("image_not_available") != -1) {
+		if (id in photos) {
+			cardContents = <img style={style} src={photos[id][0]} onError={(e) => onError(e, item)} onLoad={onLoad} />
+		} else {
+
+			cardContents = <div className={styles.missing_photo} style={style}>
+				{title}
+				<br />
+				{penciler}
+				<br />
+				grade: {grade}
+			</div>
+		}
+
+	} else {
+		cardContents = <img style={style} src={poster} onError={(e) => onError(e, item)} onLoad={onLoad} />
+	}
+
 	return (
 		<div className={styles.item_card} onClick={onClick} title={title}>
 			<div>
-				<img style={style} src={poster} onError={(e) => onError(e, item)} onLoad={onLoad} />
+				{cardContents}
 				{minimalText}
 			</div>
 		</div>
@@ -220,6 +272,7 @@ export const Cards = ({ filteredData, start, end, cardFields, fieldStats, setQue
 					fieldStats={fieldStats}
 					setQuery={setQuery}
 					picSize={picSize}
+					photos={photos}
 				/>
 			)
 		})
