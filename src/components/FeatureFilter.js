@@ -1,6 +1,6 @@
 import React, { useState, useEffect, forwardRef, useImperativeHandle } from 'react'
 
-const DEFAULT_NUM_USERS = 14
+const DEFAULT_NUM_USERS = 15
 const MAXCHAR_CATEGORY = 25
 const MAX_CHECKBOXES = 150
 

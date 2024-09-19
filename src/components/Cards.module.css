@@ -63,12 +63,15 @@
 	vertical-align: top;
 	overflow: auto;
 	margin-top: 10px;
+	padding-bottom: 20px;
 }
 
 .one_item_left img {
 	margin: 10px;
 	max-height:85vh;
 	max-width: 25vw;
+	min-height:75vh;
+	min-width: 20vw;
 }
 
 .one_item a {
@@ -135,4 +138,14 @@
 
 .close_button {
    float: right;
+   font-size: 16pt;
+}
+
+.missing_photo {
+	width: 100%;
+	height: 100%;
+	border: 1px solid gray;
+	padding: 10px;
+	color: white;
+	text-align: center;
 }

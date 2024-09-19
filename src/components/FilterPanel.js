@@ -152,7 +152,7 @@ const FilterPanel = ({ originalArray, setFilteredData, query, filterFields, sear
 						<dt>
 							<a href="https://developer.marvel.com/documentation/getting_started" target="_blank">Marvel Comics API</a>
 						</dt>
-						<dd>cover images, descriptions, and creator credits</dd>
+						<dd>Stock cover images, descriptions, and creator credits</dd>
 
 						<dt>
 							<a href="https://filterpanel-csv.vercel.app/" target="_blank">featurepanel</a>
@@ -164,27 +164,19 @@ const FilterPanel = ({ originalArray, setFilteredData, query, filterFields, sear
 						</dt>
 						<dd>react/nextjs code for this webapp</dd>
 
-						<dt><a href="https://imgur.com/" target="_blank">imgur</a></dt>
-						<dd>
-							photo hosting
-						</dd>
-
-						<dt><a href="https://data.world/johndimm/mycomics" target="_blank">data.world</a></dt>
-						<dd>csv file hosting</dd>
-
 						<dt>
 							Marvel's back-issue service
 						</dt>
 
 						<dd>
-							Most of the 1963-64 issues were bought by mail directly from Marvel itself at cover price.
+							Most of the 1963-64 issues were bought in the 60's by mail directly from Marvel itself at cover price.
 						</dd>
 
 						<dt>
 							Tyee Bookstore in Seattle
 						</dt>
 						<dd>
-							A trove of 1961-63 Marvels in top condition at $0.05.
+							An amazing trove of 1961-63 Marvels in top condition at $0.05, found in 1966.
 						</dd>
 
 
