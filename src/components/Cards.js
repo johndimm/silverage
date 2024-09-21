@@ -60,10 +60,11 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 
 		const title = item['title']
 
-		let subject = `I might be interested in ${title}.  How much?`
-		if (!hasPhotos) subject += " Please take some photos of the actual comic."
+		const subject = `I might be interested in ${title}`
+		let body = 'Please post it for sale and send me the link. '
+		if (!hasPhotos) body += " Also, can you include some photos of the actual comic?"
 		const email = 'john.silveragemarvels@gmail.com'
-		const href = `mailto:${email}?subject=${subject}`
+		const href = `mailto:${email}?subject=${subject}&body=${body}`
 		return (
 			<div className={styles.request_info}>
 				<b>Request information by email:</b>
