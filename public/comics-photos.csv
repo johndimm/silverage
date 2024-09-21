@@ -1,77 +1,65 @@
-comic_id,area,photo
-13227,,slabs/ff4f.jpg
-13227,,slabs/ff4b.jpg
-13227,,slabs/ff4pinup.jpg
-16096,,slabs/ss1f.jpg
-16096,,slabs/ss1b.jpg
-12895,,slabs/ff10f.jpg
-12895,,slabs/ff10b.jpg
-13266,,slabs/ff6f.jpg
-13266,,slabs/ff6b.jpg
-13247,,ff/42/front.jpg
-13247,,ff/42/back.jpeg
-13247,,ff/42/back-bottom-left.jpg
-13247,,ff/42/back-bottom-right.jpg
-13247,,ff/42/back-top-left.jpg
-13247,,ff/42/back-top-right.jpg
-13247,,ff/42/front-bottom-left.jpg
-13247,,ff/42/front-bottom-right.jpg
-13247,,ff/42/front-top-left.jpg
-13247,,ff/42/front-top-right.jpg
-13247,,ff/42/title-page.jpg
-73989,,war/battlefield_9/front.jpeg
-73989,,war/battlefield_9/back.jpeg
-73989,,war/battlefield_9/front-bottom-left.jpg
-73989,,war/battlefield_9/front-bottom-right.jpg
-73989,,war/battlefield_9/front-top-left.jpg
-73989,,war/battlefield_9/front-top-right.jpg
-73989,,war/battlefield_9/back-bottom-left.jpg
-73989,,war/battlefield_9/back-bottom-middle.jpg
-73989,,war/battlefield_9/back-top-left.jpg
-73989,,war/battlefield_9/back-top-right.jpg
-73989,,war/battlefield_9/inside.jpg
-18576,,western/two-gun kid/55/front.jpeg
-18576,,western/two-gun kid/55/back.jpeg
-18576,,western/two-gun kid/55/front-bottom-left.jpg
-18576,,western/two-gun kid/55/front-bottom-right.jpg
-18576,,western/two-gun kid/55/front-top-left.jpg
-18576,,western/two-gun kid/55/front-top-right.jpg
-18576,,western/two-gun kid/55/back-bottom-left.jpg
-18576,,western/two-gun kid/55/back-bottom-right.jpg
-18576,,western/two-gun kid/55/back-top-left.jpg
-18576,,western/two-gun kid/55/back-top-right.jpg
-18576,,western/two-gun kid/55/inside.jpg
-9787,,journey into mystery/90/front.jpeg
-9787,,journey into mystery/90/back.jpeg
-9787,,journey into mystery/90/front-bottom-left.jpg
-9787,,journey into mystery/90/front-bottom-right.jpg
-9787,,journey into mystery/90/front-top-left.jpg
-9787,,journey into mystery/90/front-top-right.jpg
-9787,,journey into mystery/90/back-bottom-left.jpg
-9787,,journey into mystery/90/back-bottom-right.jpg
-9787,,journey into mystery/90/back-top-left.jpg
-9787,,journey into mystery/90/back-top-right.jpg
-9787,,journey into mystery/90/back-top-right2.jpg
-9787,,journey into mystery/90/inside.jpg
-11285,,tales of suspense/43/front.jpeg
-11285,,tales of suspense/43/back.jpeg
-11285,,tales of suspense/43/front-bottom-left.jpg
-11285,,tales of suspense/43/front-bottom-right.jpg
-11285,,tales of suspense/43/front-top-left.jpg
-11285,,tales of suspense/43/front-top-right.jpg
-11285,,tales of suspense/43/back-bottom-left.jpg
-11285,,tales of suspense/43/back-bottom-right.jpg
-11285,,tales of suspense/43/back-top-left.jpg
-11285,,tales of suspense/43/back-top-right.jpg
-11285,,tales of suspense/43/inside.jpg
-12477,,x-men/3/front.jpeg
-12477,,x-men/3/back.jpeg
-12477,,x-men/3/front-bottom-left.jpg
-12477,,x-men/3/front-bottom-right.jpg
-12477,,x-men/3/front-top-left.jpg
-12477,,x-men/3/front-top-right.jpg
-12477,,x-men/3/back-bottom-left.jpg
-12477,,x-men/3/back-bottom-right.jpg
-12477,,x-men/3/back-top-left.jpg
-12477,,x-men/3/back-top-right.jpg
-12477,,x-men/3/inside.jpg
+13247,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13247/ff/42/front-top-right.jpg
+13247,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13247/ff/42/front-top-left.jpg
+13247,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13247/ff/42/title-page.jpg
+13247,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13247/ff/42/back-bottom-left.jpg
+13247,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13247/ff/42/front-bottom-right.jpg
+13247,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13247/ff/42/front-bottom-left.jpg
+13247,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13247/ff/42/back-bottom-right.jpg
+13247,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13247/ff/42/back-top-right.jpg
+13247,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13247/ff/42/back-top-left.jpg
+13247,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13247/ff/42/front.jpg
+18576,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/18576/western/two-gun kid/55/front-top-right.jpg
+18576,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/18576/western/two-gun kid/55/inside.jpg
+18576,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/18576/western/two-gun kid/55/front-top-left.jpg
+18576,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/18576/western/two-gun kid/55/back-bottom-left.jpg
+18576,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/18576/western/two-gun kid/55/front-bottom-right.jpg
+18576,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/18576/western/two-gun kid/55/front-bottom-left.jpg
+18576,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/18576/western/two-gun kid/55/back-bottom-right.jpg
+18576,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/18576/western/two-gun kid/55/back-top-right.jpg
+18576,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/18576/western/two-gun kid/55/back-top-left.jpg
+73989,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/73989/war/battlefield_9/front-top-right.jpg
+73989,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/73989/war/battlefield_9/inside.jpg
+73989,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/73989/war/battlefield_9/front-top-left.jpg
+73989,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/73989/war/battlefield_9/back-bottom-left.jpg
+73989,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/73989/war/battlefield_9/front-bottom-right.jpg
+73989,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/73989/war/battlefield_9/back-bottom-middle.jpg
+73989,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/73989/war/battlefield_9/front-bottom-left.jpg
+73989,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/73989/war/battlefield_9/back-top-right.jpg
+73989,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/73989/war/battlefield_9/back-top-left.jpg
+13227,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13227/slabs/ff4f.jpg
+13227,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13227/slabs/ff4b.jpg
+13227,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13227/slabs/ff4pinup.jpg
+12477,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/12477/x-men/3/front-top-right.jpg
+12477,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/12477/x-men/3/inside.jpg
+12477,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/12477/x-men/3/front-top-left.jpg
+12477,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/12477/x-men/3/back-bottom-left.jpg
+12477,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/12477/x-men/3/front-bottom-right.jpg
+12477,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/12477/x-men/3/front-bottom-left.jpg
+12477,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/12477/x-men/3/back-bottom-right.jpg
+12477,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/12477/x-men/3/back-top-right.jpg
+12477,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/12477/x-men/3/back-top-left.jpg
+9787,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/9787/journey into mystery/90/front-top-right.jpg
+9787,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/9787/journey into mystery/90/inside.jpg
+9787,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/9787/journey into mystery/90/front-top-left.jpg
+9787,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/9787/journey into mystery/90/back-bottom-left.jpg
+9787,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/9787/journey into mystery/90/front-bottom-right.jpg
+9787,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/9787/journey into mystery/90/front-bottom-left.jpg
+9787,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/9787/journey into mystery/90/back-bottom-right.jpg
+9787,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/9787/journey into mystery/90/back-top-right2.jpg
+9787,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/9787/journey into mystery/90/back-top-right.jpg
+9787,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/9787/journey into mystery/90/back-top-left.jpg
+16096,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/16096/slabs/ss1f.jpg
+16096,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/16096/slabs/ss1b.jpg
+11285,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/11285/tales of suspense/43/front-top-right.jpg
+11285,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/11285/tales of suspense/43/inside.jpg
+11285,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/11285/tales of suspense/43/front-top-left.jpg
+11285,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/11285/tales of suspense/43/back-bottom-left.jpg
+11285,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/11285/tales of suspense/43/front-bottom-right.jpg
+11285,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/11285/tales of suspense/43/front-bottom-left.jpg
+11285,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/11285/tales of suspense/43/back-bottom-right.jpg
+11285,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/11285/tales of suspense/43/back-top-right.jpg
+11285,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/11285/tales of suspense/43/back-top-left.jpg
+12895,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/12895/slabs/ff10b.jpg
+12895,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/12895/slabs/ff10f.jpg
+13266,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13266/slabs/ff6f.jpg
+13266,,https://raw.githubusercontent.com/johndimm/comic-photos/refs/heads/main/images/13266/slabs/ff6b.jpg
