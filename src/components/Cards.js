@@ -24,16 +24,14 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 
 		e.preventDefault()
 		e.target.onerror = null
-
 	}
 
 	useEffect(() => {
-
 		setPoster(item[posterField].replace("portrait_uncanny", "detail"))
 	}, [item])
 
-	const title = encodeURIComponent(item['title'])
-	const ebayLink = `https://www.ebay.com/sch/i.html?_nkw=${title}`
+	//const title = encodeURIComponent(item['title'])
+	//const ebayLink = `https://www.ebay.com/sch/i.html?_nkw=${title}+CGC&LH_Sold=1&_ipg=240`
 
 	let scans = []
 	const id = item['id']
@@ -87,6 +85,13 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 		mainImage = poster
 	}
 
+	const cgc = item['CGC']
+	let cgcButton = ''
+	if (cgc) {
+		const cgcLink = cgc ? `https://www.cgccomics.com/certlookup/${cgc}/` : ''
+		cgcButton = <button onClick={() => { window.open(cgcLink, '_cgc') }}>cgc certificate</button>
+	}
+
 	const hasPhotos = id in photos && photos[id].length > 0
 
 	return (
@@ -111,11 +116,13 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 									<button onClick={goPrev}>prev</button>
 									<button onClick={goNext}>next</button>
 									<button onClick={() => { window.open(ebayLink, '_ebay') }}>ebay lookup</button>
+                                    {cgcButton}
 									<button className={styles.close_button} onClick={(e) => setOneItem(null)}>X</button>
 								</div>
 
 								<div className={styles.item_details_text}>{detail}</div>
 								<ContactForm item={item} hasPhotos={hasPhotos}/>
+
 
 							</div>
 						</td>
