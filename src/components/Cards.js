@@ -102,7 +102,8 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 					<tr valign="top">
 						<td>
 							<div className={styles.one_item_left}>
-								<img src={mainImage} onError={(e) => onError(e, item)} onClick={(e) => setOneItem(null)} />
+							  <a href={mainImage} target="_COMIC_IMAGE">
+								<img src={mainImage} onError={(e) => onError(e, item)} onClick={(e) => setOneItem(null)} /></a>
 							</div>
 						</td>
 						<td>
