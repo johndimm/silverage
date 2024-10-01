@@ -114,10 +114,12 @@ const FilterPanel = ({ originalArray, setFilteredData, query, filterFields, sear
 	return (
 		<>
 			<GlobalStyles />
-			<div className="titles">
+			<div className="page_title">
+				<div>
+					Tourmaline Used Comics
+				</div>
 				<div className="page_subtitle">
-					<span style={{ "fontSize": "12pt" }}><i>a</i></span>&nbsp; fantastic &nbsp;
-					<i>collection</i> of <span className='marvel_comics'>1960's Marvel Comics</span> . . .
+					Silver Age Marvels
 				</div>
 			</div>
 			<div className='fp_filter_panel'>

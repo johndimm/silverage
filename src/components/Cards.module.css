@@ -53,7 +53,9 @@
 
 .one_item_left {
 	display: inline-block;
-	max-height: 100%;
+	max-height: 600px;
+	overflow: auto;
+	margin-right: 20px;
 }
 
 .one_item_right {
@@ -68,9 +70,7 @@
 
 .one_item_left img {
 	margin: 10px;
-	max-height:85vh;
 	max-width: 25vw;
-	min-height:75vh;
 	min-width: 20vw;
 }
 
