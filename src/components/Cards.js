@@ -30,23 +30,41 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 		setPoster(item[posterField].replace("portrait_uncanny", "detail"))
 	}, [item])
 
-	//const title = encodeURIComponent(item['title'])
-	//const ebayLink = `https://www.ebay.com/sch/i.html?_nkw=${title}+CGC&LH_Sold=1&_ipg=240`
+	const title = encodeURIComponent(item['title'])
+	const ebayLink = `https://www.ebay.com/sch/i.html?_nkw=${title}+CGC&LH_Sold=1&_ipg=240`
 
-	let scans = []
 	const id = item['id']
+	let mainImage = null
+	if (poster.indexOf("image_not_available") != -1) {
+		if (id in photos) {
+		  mainImage = photos[id][0]
+		} else {
+			mainImage = null
+		}
+	} else {
+		mainImage = poster
+	}
+
+	let bigs = [<div>
+		<a href={mainImage} target="_COMIC_IMAGE" title="click to open full-size image">
+		<img src={mainImage} />
+		</a>
+	</div>]
+
 	if (id in photos) {
 		console.log(`photos[id][0]: ${photos[id][0]} , item[posterField]: ${item[posterField]}`)
 		const comic_photos = photos[id][0] == item[posterField]
 			? photos[id]
 			: [].concat(item[posterField], photos[id])
 
-		scans = comic_photos.map((photo, idx) => {
+		bigs = comic_photos.map((photo, idx) => {
 			if (photo.indexOf('/image_not_available') != -1) {
 				return <></>
 			}
 			return <div>
-				<img key={idx} src={photo} width="50" onClick={() => setPoster(photo)} />
+				<a href={photo} target="_COMIC_IMAGE" title="click to open full-size image">
+				<img key={idx} src={photo} />
+				</a>
 			</div>
 		})
 	}
@@ -59,8 +77,11 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 		const title = item['title']
 
 		const subject = `I might be interested in ${title}`
-		let body = 'Please post it for sale and send me the link. '
-		if (!hasPhotos) body += " Also, can you include some photos of the actual comic?"
+
+		let body = ''
+		//if (!hasPhotos) body += "Please upload some photos of the actual comic."
+		//body += ' Or post it for sale, either on ebay or facebook marketplace, either raw or CGC-graded, and send me the link. '
+
 		const email = 'john.silveragemarvels@gmail.com'
 		const href = `mailto:${email}?subject=${subject}&body=${body}`
 		return (
@@ -73,16 +94,6 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 				</a>
 			</div>
 		)
-	}
-	let mainImage = null
-	if (poster.indexOf("image_not_available") != -1) {
-		if (id in photos) {
-		  mainImage = photos[id][0]
-		} else {
-			mainImage = null
-		}
-	} else {
-		mainImage = poster
 	}
 
 	const cgc = item['CGC']
@@ -102,15 +113,11 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 					<tr valign="top">
 						<td>
 							<div className={styles.one_item_left}>
-							  <a href={mainImage} target="_COMIC_IMAGE">
-								<img src={mainImage} onError={(e) => onError(e, item)} onClick={(e) => setOneItem(null)} /></a>
+								{bigs}
+
 							</div>
 						</td>
-						<td>
-							<div className={styles.scans}>
-								{scans}
-							</div>
-						</td>
+
 						<td>
 							<div className={styles.one_item_right} >
 								<div className={styles.navigation}>

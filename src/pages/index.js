@@ -5,7 +5,7 @@ const MainPage = () => {
 	return <div>
 		<Head>
 			<title>
-			a fantastic collecton of 1960's Marvel Comics
+			a fantastic collecton of Marvel Comics from the 60's
 			</title>
 		</Head>
 	    <Main />

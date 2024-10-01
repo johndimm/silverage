@@ -125,25 +125,19 @@ const GlobalStyles = () => {
 }
 
 .page_title {
-	font-size:12pt;
-	clear: both;
-	text-align: center;
-	font-weight: 700;
-	font-family: sans-serif, fantastifont;
-	letter-spacing: 11px;
-	margin-bottom: 5px;
-}
-
-.page_subtitle {
-	font-size: 10pt;
+	font-size: 12pt;
 	text-align: center;
 	font-family: komika;
-	padding: 5px;
+	padding: 10px;
 	background-color: yellow;
 	border: 2px solid darkblue;
 	width: 100%;
 	margin-bottom: 10px;
+}
 
+.page_subtitle {
+    font-size: 8pt;
+	text-align: center;
 }
 
 .marvel_comics {
