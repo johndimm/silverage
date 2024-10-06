@@ -8,6 +8,36 @@ const picSizes = {
 	"large": { "name": "portrait_uncanny", "width": 300, "height": 450 }
 }
 
+const getMainImage = (id, poster, photos) => {
+
+	if (poster.indexOf("image_not_available") != -1) {
+		if (id in photos) {
+		  return photos[id][0]
+		} else {
+			return null
+		}
+	} else {
+	    return poster
+	}
+
+	/*
+
+	let mainImage = null
+
+	if (id in photos) {
+		mainImage = photos[id][0]
+	} else {
+		if (poster.indexOf("image_not_available") != -1) {
+			mainImage = null
+		} else {
+			mainImage = poster
+		}
+	}
+	*/
+
+
+}
+
 export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext, photos }) => {
 	const posterField = fieldStats.cardFields.poster
 	const [poster, setPoster] = useState('')
@@ -34,16 +64,7 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 	const ebayLink = `https://www.ebay.com/sch/i.html?_nkw=${title}+CGC&LH_Sold=1&_ipg=240`
 
 	const id = item['id']
-	let mainImage = null
-	if (poster.indexOf("image_not_available") != -1) {
-		if (id in photos) {
-		  mainImage = photos[id][0]
-		} else {
-			mainImage = null
-		}
-	} else {
-		mainImage = poster
-	}
+	const mainImage = getMainImage(id, poster, photos)
 
 	let bigs = [<div>
 		<a href={mainImage} target="_COMIC_IMAGE" title="click to open full-size image">
@@ -209,6 +230,23 @@ const Card = ({ item, onClick, cardFields, fieldStats, setQuery, picSize, photos
 
 	const style = { "width": size["width"] + "px", "height": size["height"] + "px" }
 
+	const mainImage = getMainImage(id, poster, photos)
+
+	let cardContents = null
+	if (mainImage) {
+			cardContents = <img style={style} src={mainImage} onError={(e) => onError(e, item)} onLoad={onLoad} />
+		} else {
+			cardContents = <div className={styles.missing_photo} style={style}>
+				{title}
+				<br />
+				{penciler}
+				<br />
+				grade: {grade}
+			</div>
+		}
+
+/*
+
 	let cardContents = null
 	if (poster.indexOf("image_not_available") != -1) {
 		if (id in photos) {
@@ -227,6 +265,8 @@ const Card = ({ item, onClick, cardFields, fieldStats, setQuery, picSize, photos
 	} else {
 		cardContents = <img style={style} src={poster} onError={(e) => onError(e, item)} onLoad={onLoad} />
 	}
+
+*/
 
 	return (
 		<div className={styles.item_card} onClick={onClick} title={title}>
