@@ -38,8 +38,8 @@
 
 .one_item {
 	position: relative;
+	display: inline-block;
 	top: 10px;
-	left: 25%;
 	border: 1px solid black;
 	background-color: lightgray;
     width: fit-content;
@@ -59,7 +59,8 @@
 
 .one_item_right {
 	display: inline-block;
-	width: 400px;
+	min-width: 100px;
+	max-width: 400px;
 	height: 100%;
 	vertical-align: top;
 	overflow: auto;
@@ -74,7 +75,7 @@
 }
 
 .one_item a {
-	margin-left: 20px;
+	margin-left: 10px;
 }
 
 .one_item_title {
