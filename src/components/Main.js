@@ -14,7 +14,7 @@ const { publicRuntimeConfig } = getConfig();
 const ITEMS_PER_PAGE = 30
 
 
-const Main = ({ url, csvBuffer }) => {
+const Main = ({ url, csvBuffer, selectedId }) => {
 	const [data, setData] = useState([])
 	const [filteredData, setFilteredData] = useState([])
 	// const [oneItem, setOneItem] = useState(null)
@@ -29,6 +29,7 @@ const Main = ({ url, csvBuffer }) => {
 	const [picSize, setPicSize] = useState('medium')
 	const [photos, setPhotos] = useState({})
 	const itemArray = useRef([])
+
 
 
 	const acceptCSVContent = async (content) => {
@@ -174,6 +175,7 @@ const Main = ({ url, csvBuffer }) => {
 			setQuery={setQuery}
 			picSize={picSize}
 			photos={photos}
+			selectedId={selectedId}
 		/>
 	) : (
 		<Rows

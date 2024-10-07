@@ -12,12 +12,12 @@ const getMainImage = (id, poster, photos) => {
 
 	if (poster.indexOf("image_not_available") != -1) {
 		if (id in photos) {
-		  return photos[id][0]
+			return photos[id][0]
 		} else {
 			return null
 		}
 	} else {
-	    return poster
+		return poster
 	}
 
 	/*
@@ -68,7 +68,7 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 
 	let bigs = [<div>
 		<a href={mainImage} target="_COMIC_IMAGE" title="click to open full-size image">
-		<img src={mainImage} />
+			<img src={mainImage} />
 		</a>
 	</div>]
 
@@ -84,7 +84,7 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 			}
 			return <div>
 				<a href={photo} target="_COMIC_IMAGE" title="click to open full-size image">
-				<img key={idx} src={photo} />
+					<img key={idx} src={photo} />
 				</a>
 			</div>
 		})
@@ -145,12 +145,12 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 									<button onClick={goPrev}>prev</button>
 									<button onClick={goNext}>next</button>
 									<button onClick={() => { window.open(ebayLink, '_ebay') }}>ebay lookup</button>
-                                    {cgcButton}
+									{cgcButton}
 									<button className={styles.close_button} onClick={(e) => setOneItem(null)}>X</button>
 								</div>
 
 								<div className={styles.item_details_text}>{detail}</div>
-								<ContactForm item={item} hasPhotos={hasPhotos}/>
+								<ContactForm item={item} hasPhotos={hasPhotos} />
 
 
 							</div>
@@ -234,39 +234,39 @@ const Card = ({ item, onClick, cardFields, fieldStats, setQuery, picSize, photos
 
 	let cardContents = null
 	if (mainImage) {
-			cardContents = <img style={style} src={mainImage} onError={(e) => onError(e, item)} onLoad={onLoad} />
-		} else {
-			cardContents = <div className={styles.missing_photo} style={style}>
-				{title}
-				<br />
-				{penciler}
-				<br />
-				grade: {grade}
-			</div>
-		}
-
-/*
-
-	let cardContents = null
-	if (poster.indexOf("image_not_available") != -1) {
-		if (id in photos) {
-			cardContents = <img style={style} src={photos[id][0]} onError={(e) => onError(e, item)} onLoad={onLoad} />
-		} else {
-
-			cardContents = <div className={styles.missing_photo} style={style}>
-				{title}
-				<br />
-				{penciler}
-				<br />
-				grade: {grade}
-			</div>
-		}
-
+		cardContents = <img style={style} src={mainImage} onError={(e) => onError(e, item)} onLoad={onLoad} />
 	} else {
-		cardContents = <img style={style} src={poster} onError={(e) => onError(e, item)} onLoad={onLoad} />
+		cardContents = <div className={styles.missing_photo} style={style}>
+			{title}
+			<br />
+			{penciler}
+			<br />
+			grade: {grade}
+		</div>
 	}
 
-*/
+	/*
+	
+		let cardContents = null
+		if (poster.indexOf("image_not_available") != -1) {
+			if (id in photos) {
+				cardContents = <img style={style} src={photos[id][0]} onError={(e) => onError(e, item)} onLoad={onLoad} />
+			} else {
+	
+				cardContents = <div className={styles.missing_photo} style={style}>
+					{title}
+					<br />
+					{penciler}
+					<br />
+					grade: {grade}
+				</div>
+			}
+	
+		} else {
+			cardContents = <img style={style} src={poster} onError={(e) => onError(e, item)} onLoad={onLoad} />
+		}
+	
+	*/
 
 	return (
 		<div className={styles.item_card} onClick={onClick} title={title}>
@@ -279,10 +279,17 @@ const Card = ({ item, onClick, cardFields, fieldStats, setQuery, picSize, photos
 }
 
 
-export const Cards = ({ filteredData, start, end, cardFields, fieldStats, setQuery, picSize, photos, forSaleOnly }) => {
+export const Cards = ({ filteredData, start, end, cardFields, fieldStats, setQuery, picSize, photos, forSaleOnly, selectedId }) => {
 	const [oneItem, setOneItem] = useState(null)
 
-	// console.log('Cards, oneItem:', oneItem)
+	useEffect(() => {
+		filteredData.forEach ((val, idx) => {
+			if (val.id == selectedId) {
+				setOneItem(idx)
+			}
+		})
+
+	}, [selectedId])
 
 	const goNext = () => {
 		// console.log('goNext:', oneItem)
@@ -295,24 +302,6 @@ export const Cards = ({ filteredData, start, end, cardFields, fieldStats, setQue
 		if (oneItem != null && oneItem > 0)
 			setOneItem(oneItem - 1)
 	}
-
-
-	let selectedItem = null
-	if (oneItem != null) {
-		const oneItemVal = filteredData[oneItem]
-		selectedItem = (
-			<OneItem
-				item={oneItemVal}
-				setOneItem={setOneItem}
-				setQuery={setQuery}
-				fieldStats={fieldStats}
-				goPrev={goPrev}
-				goNext={goNext}
-				photos={photos}
-			/>
-		)
-	}
-
 
 	const items = filteredData
 		.sort((a, b) => b.imdbRating - a.imdbRating)
@@ -332,6 +321,23 @@ export const Cards = ({ filteredData, start, end, cardFields, fieldStats, setQue
 				/>
 			)
 		})
+
+
+	let selectedItem = null
+	if (oneItem != null) {
+		const oneItemVal = filteredData[oneItem]
+		selectedItem = (
+			<OneItem
+				item={oneItemVal}
+				setOneItem={setOneItem}
+				setQuery={setQuery}
+				fieldStats={fieldStats}
+				goPrev={goPrev}
+				goNext={goNext}
+				photos={photos}
+			/>
+		)
+	}
 
 	return (
 		<div>
