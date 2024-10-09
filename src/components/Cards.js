@@ -47,8 +47,8 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 	let community = null
 	if (item['community_url']) {
 		community = <div>
-			<b>CGC Forum:</b> <a className={styles.detail_link} target="_cgc_forum" href={item['community_url']}><i>Please Grade Me</i></a> 
-			  {item['community_low']} / {item['community_high']} {item['qualified']}
+			<b>CGC Forum<a className={styles.detail_link} target="_cgc_forum" href={item['community_url']}><i>Please Grade Me</i></a>:</b>&nbsp;
+			 <span>{item['community_low']} / {item['community_high']} {item['qualified']}</span>
 		</div>
 		
 	}
