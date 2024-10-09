@@ -204,9 +204,9 @@ const Main = ({ url, csvBuffer, selectedId }) => {
 					content='width=device-width, initial-scale=.5, maximum-scale=10.0, minimum-scale=.25, user-scalable=yes'
 				/>
 				<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet"></link>
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 			</Head>
+			<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet"></link>
 
 			<div className={styles.app} >
 				<div className={styles.filterPanelContainer} >

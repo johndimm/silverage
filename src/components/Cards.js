@@ -82,7 +82,7 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 	</div>]
 
 	if (id in photos) {
-		console.log(`photos[id][0]: ${photos[id][0]} , item[posterField]: ${item[posterField]}`)
+		// console.log(`photos[id][0]: ${photos[id][0]} , item[posterField]: ${item[posterField]}`)
 		const comic_photos = photos[id][0] == item[posterField]
 			? photos[id]
 			: [].concat(item[posterField], photos[id])
@@ -91,9 +91,9 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 			if (photo.indexOf('/image_not_available') != -1) {
 				return <></>
 			}
-			return <div>
+			return <div key={idx}>
 				<a href={photo} target="_COMIC_IMAGE" title="click to open full-size image">
-					<img key={idx} src={photo} />
+					<img src={photo} />
 				</a>
 			</div>
 		})
@@ -310,7 +310,7 @@ export const Cards = ({ filteredData, start, end, cardFields, fieldStats, setQue
 	}
 
 	const goPrev = () => {
-		console.log('goPrev:', oneItem)
+		//console.log('goPrev:', oneItem)
 		if (oneItem != null && oneItem > 0)
 			setOneItem(oneItem - 1)
 	}
