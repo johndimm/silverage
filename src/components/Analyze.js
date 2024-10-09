@@ -1,3 +1,7 @@
+const skipFields = (fieldName) => {
+	return (fieldName.indexOf('community_') == 0 || fieldName.indexOf('qualified') == 0)
+}
+
 const scanCSVData = (jsonArray) => {
 	if (!jsonArray || jsonArray.length == 0)
 	  return
@@ -19,6 +23,11 @@ const scanCSVData = (jsonArray) => {
 		let isImage = false
 		let hasWordChar = false
 		let isObject = false
+
+		// Avoid creating filters for a few fields.
+		if (skipFields(fieldName))
+			return
+
 		jsonArray.forEach((jsonRow) => {
 			const type = typeof jsonRow[fieldName]
 			// console.log('type', fieldName, type)
@@ -182,7 +191,9 @@ const allKeys = (item, fieldStats, setQuery) => {
 		if (!stats)
 			return null
 		
-		if (stats.isUrl) return null
+		if (stats.isUrl || skipFields(s)) {
+			return null
+		}
 
 		const name = s.charAt(0).toUpperCase() + s.slice(1)
 
@@ -193,6 +204,8 @@ const allKeys = (item, fieldStats, setQuery) => {
 
 
 		let hotDetail = parts.map((val, idx2) => {
+			if (val == '')
+				return null
 			const comma = idx2 > 0 ? ',' : ''
 			let v = val
 			const parens = val.indexOf('(')
@@ -209,6 +222,8 @@ const allKeys = (item, fieldStats, setQuery) => {
         if (s == priceField && item[priceField] == '')
 		   hotDetail = ". . . not yet"
 
+		if (hotDetail == '')
+			return null
 
 		return (
 			<div key={idx}>

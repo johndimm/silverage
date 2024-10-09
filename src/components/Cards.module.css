@@ -51,6 +51,12 @@
     vertical-align: top;
 }
 
+.detail_link {
+  color: darkblue;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
 .one_item_left {
 	display: inline-block;
 	max-height: 600px;

@@ -44,6 +44,15 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 
 	const detail = allKeys(item, fieldStats, setQuery)
 
+	let community = null
+	if (item['community_url']) {
+		community = <div>
+			<b>CGC Forum:</b> <a className={styles.detail_link} target="_cgc_forum" href={item['community_url']}><i>Please Grade Me</i></a> 
+			  {item['community_low']} / {item['community_high']} {item['qualified']}
+		</div>
+		
+	}
+
 	const onError = (e, item) => {
 		// Turn display off, because this may be a bad image link.
 		// But it could also something innocuous that actually
@@ -149,7 +158,10 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 									<button className={styles.close_button} onClick={(e) => setOneItem(null)}>X</button>
 								</div>
 
-								<div className={styles.item_details_text}>{detail}</div>
+								<div className={styles.item_details_text}>
+									{detail}
+									{community}
+								</div>
 								<ContactForm item={item} hasPhotos={hasPhotos} />
 
 
