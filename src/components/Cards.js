@@ -56,7 +56,7 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 	if (item['for sale']) {
 		for_sale = <div>
 			<b>For Sale :</b>
-			<a className={styles.detail_link} href={item['for sale']} target='_for sale'>buy now</a>
+			<a className={styles.detail_link} href={item['for sale']} target='_for sale'>listing on external site</a>
 		</div>
 	}
 
