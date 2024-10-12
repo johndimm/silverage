@@ -54,6 +54,8 @@
 .detail_link {
   color: darkblue;
   cursor: pointer;
+  font-style: italic;
+  font-weight: 600;
 }
 
 .one_item_left {

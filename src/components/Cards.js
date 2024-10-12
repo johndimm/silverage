@@ -47,10 +47,17 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 	let community = null
 	if (item['community_url']) {
 		community = <div>
-			<b>CGC Forum<a className={styles.detail_link} target="_cgc_forum" href={item['community_url']}><i>Please Grade Me</i></a>:</b>&nbsp;
+			<b>CGC Forum<a className={styles.detail_link} target="_cgc_forum" href={item['community_url']}>Please Grade Me</a>:</b>&nbsp;
 			 <span>{item['community_low']} / {item['community_high']} {item['qualified']}</span>
 		</div>
-		
+	}
+
+	let for_sale = null
+	if (item['for sale']) {
+		for_sale = <div>
+			<b>For Sale :</b>
+			<a className={styles.detail_link} href={item['for sale']} target='_for sale'>buy now</a>
+		</div>
 	}
 
 	const onError = (e, item) => {
@@ -161,6 +168,7 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 								<div className={styles.item_details_text}>
 									{detail}
 									{community}
+									{for_sale}
 								</div>
 								<ContactForm item={item} hasPhotos={hasPhotos} />
 

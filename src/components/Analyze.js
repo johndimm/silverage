@@ -1,5 +1,11 @@
-const skipFields = (fieldName) => {
-	return (fieldName.indexOf('community_') == 0 || fieldName.indexOf('qualified') == 0)
+const skipFields = (fieldName, fields) => {
+	for (let i=0; i<fields.length; i++) {
+	  const field = fields[i]
+	  if (fieldName.indexOf(field) == 0) {
+		return true
+	  }
+	}
+	return false
 }
 
 const scanCSVData = (jsonArray) => {
@@ -25,7 +31,7 @@ const scanCSVData = (jsonArray) => {
 		let isObject = false
 
 		// Avoid creating filters for a few fields.
-		if (skipFields(fieldName))
+		if (skipFields(fieldName, ['community_', 'qualified', 'CGC', 'sold ']))
 			return
 
 		jsonArray.forEach((jsonRow) => {
@@ -191,7 +197,7 @@ const allKeys = (item, fieldStats, setQuery) => {
 		if (!stats)
 			return null
 		
-		if (stats.isUrl || skipFields(s)) {
+		if (stats.isUrl || skipFields(s, ['CGC', 'community_'])) {
 			return null
 		}
 
