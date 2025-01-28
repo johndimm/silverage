@@ -77,7 +77,16 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 	}, [item])
 
 	const title = encodeURIComponent(item['title'])
-	const ebayLink = `https://www.ebay.com/sch/i.html?_nkw=${title}+CGC&LH_Sold=1&_ipg=240`
+	let ebayLink = `https://www.ebay.com/sch/i.html?_nkw=${title}+CGC&LH_Sold=1&_ipg=240`
+    const year = item['year']
+	let titleAlone
+	let issueNumber
+	const pair = item['title'].split(' #')
+	if (pair.length == 2) {
+		titleAlone = encodeURIComponent(pair[0])
+		issueNumber = pair[1]
+		ebayLink = `https://ebay-comics-sold.vercel.app?title=${titleAlone}&issue=${issueNumber}&year=${year}&sold=1`
+	}
 
 	const id = item['id']
 	const mainImage = getMainImage(id, poster, photos)

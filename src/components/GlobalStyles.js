@@ -40,7 +40,7 @@ const GlobalStyles = () => {
 	padding-right: 10px;
 
 	margin-bottom: 100px;
-	height: 100%;
+	height: calc(100% - 56px);
 	overflow: auto;
 }
 

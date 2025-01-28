@@ -1,7 +1,7 @@
 .app {
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
-	overflow: auto;
+	overflow: hidden;
 	display: flex;
 }
 
@@ -36,10 +36,6 @@
 	bottom: 0;
 	right: 0;
 	background-color: rgba(0, 0, 0, 0.5);
-}
-
-.filterPanelContainer {
-	flex: 0 280px;
 }
 
 .filterPanelItems {
