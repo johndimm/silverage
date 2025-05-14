@@ -31,7 +31,7 @@ const scanCSVData = (jsonArray) => {
 		let isObject = false
 
 		// Avoid creating filters for a few fields.
-		if (skipFields(fieldName, ['community_', 'qualified', 'CGC', 'sold ']))
+		if (skipFields(fieldName, ['community_', 'qualified', 'sold ']))
 			return
 
 		jsonArray.forEach((jsonRow) => {
@@ -226,7 +226,7 @@ const allKeys = (item, fieldStats, setQuery) => {
 
 		const priceField = 'for sale'
         if (s == priceField && item[priceField] == '')
-		   hotDetail = ". . . not yet"
+		   hotDetail = ""
 
 		if (hotDetail == '')
 			return null

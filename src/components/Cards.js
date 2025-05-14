@@ -116,8 +116,8 @@ export const OneItem = ({ item, setOneItem, setQuery, fieldStats, goPrev, goNext
 	}
 
 	const ContactForm = ({ item, hasPhotos }) => {
-		const price = item['for sale']
-		if (price == '')
+		const sold_date = item['sold date']
+		if (sold_date != '')
 			return null
 
 		const title = item['title']
