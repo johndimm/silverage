@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-const GARDEN_URL = 'https://johndimm.vercel.app';
+const GARDEN_URL = 'https://johndimm.org';
 const GITHUB_URL = 'https://github.com/johndimm/silverage';
 
 const wrap = { minHeight: '100vh', background: '#000', color: '#e5e5e5', fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif' };
